@@ -1,26 +1,147 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Brand */
+  --color-brand-purple: #7c3aed;
+  --color-brand-purple-light: #a78bfa;
+  --color-brand-purple-dark: #5b21b6;
+
+  /* Status states */
+  --color-status-green: #4caf50;
+  --color-status-yellow: #fbc02d;
+  --color-status-red: #d32f2f;
+  --color-status-green-hover: #43a047;
+  --color-status-yellow-hover: #f9a825;
+  --color-status-red-hover: #c62828;
+
+  /* Backgrounds (dark-first, matching Flutter app) */
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #181818;
+  --color-bg-card: #141414;
+  --color-bg-elevated: #1e1e1e;
+  --color-bg-panel: #2a2a2a;
+
+  /* Text */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #d1d5db;
+  --color-text-muted: #6b7280;
+
+  /* Borders */
+  --color-border-default: rgba(255, 255, 255, 0.12);
+  --color-border-strong: rgba(255, 255, 255, 0.24);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Status-color text helpers for yellow (needs black text) */
+.status-yellow-text {
+  color: #000000;
+}
+
+/* ─── Shared component classes ─────────────────────────────────────────────── */
+
+.input-field {
+  width: 100%;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border-default);
+  border-radius: 0.75rem;
+  padding: 0.625rem 1rem;
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 150ms;
+}
+.input-field::placeholder {
+  color: var(--color-text-muted);
+}
+.input-field:focus {
+  border-color: var(--color-brand-purple);
+}
+
+.btn-primary {
+  width: 100%;
+  background: var(--color-brand-purple);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.75rem;
+  transition: background 150ms, opacity 150ms;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--color-brand-purple-dark);
+}
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text-primary);
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.75rem;
+  transition: background 150ms;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background: var(--color-bg-panel);
+}
+
+.btn-danger {
+  background: #dc2626;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.625rem 1rem;
+  border-radius: 0.75rem;
+  transition: background 150ms, opacity 150ms;
+  cursor: pointer;
+}
+.btn-danger:hover {
+  background: #b91c1c;
+}
+.btn-danger:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Safe area padding for bottom nav */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
 }
