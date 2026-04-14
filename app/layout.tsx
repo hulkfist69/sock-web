@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Sock — Shared Living, Simplified",
   description:
     "Real-time room status for your household. Green, yellow, or red — everyone knows when to knock.",
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "/sock-icon.png", apple: "/sock-icon.png" },
 };
 
 export default function RootLayout({

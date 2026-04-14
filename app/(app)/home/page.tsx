@@ -90,7 +90,11 @@ function RoomCards({
   if (rooms.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-full text-center px-8 py-16">
-        <div className="text-4xl mb-4">🏠</div>
+        {/* Icons.meeting_room */}
+        <svg viewBox="0 0 24 24" className="w-12 h-12 fill-text-muted mb-4" aria-hidden="true">
+          <path d="M17 11h-1V7c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1zm-3 8H4V8h10v11zm2-4h-1v-3h1v3z" />
+          <circle cx="9" cy="13" r="1" />
+        </svg>
         <p className="text-text-secondary font-medium mb-2">No rooms yet</p>
         <p className="text-text-muted text-sm">
           Go to Household to create or join a room.
@@ -137,7 +141,10 @@ function RoomCards({
 function NoHousehold() {
   return (
     <div className="flex flex-col items-center justify-center h-full px-8 py-20 text-center">
-      <div className="text-5xl mb-5">🔑</div>
+      {/* Icons.home_outlined */}
+      <svg viewBox="0 0 24 24" className="w-14 h-14 fill-text-muted mb-5" aria-hidden="true">
+        <path d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" />
+      </svg>
       <h2 className="text-xl font-bold mb-3">No household yet</h2>
       <p className="text-text-muted text-sm leading-relaxed">
         Create a household or join one with a code. Head to the Household tab to get started.

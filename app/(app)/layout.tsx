@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AppProvider, useApp } from "@/lib/app-context";
 import { SocketProvider } from "@/lib/socket";
+import SockLogo from "@/components/ui/SockLogo";
 
 // ─── Bottom nav ───────────────────────────────────────────────────────────────
 
@@ -111,10 +112,7 @@ function AppHeader() {
         </div>
       </div>
 
-      {/* Sock logo mark */}
-      <div className="w-7 h-7 rounded-lg bg-brand-purple flex items-center justify-center">
-        <span className="text-white font-bold text-xs">S</span>
-      </div>
+      <SockLogo size={28} />
     </header>
   );
 }
@@ -128,8 +126,8 @@ function AppShell({ children }: { children: React.ReactNode }) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-bg-primary">
         <div className="flex flex-col items-center gap-4">
-          <div className="w-10 h-10 rounded-2xl bg-brand-purple flex items-center justify-center animate-pulse">
-            <span className="text-white font-bold">S</span>
+          <div className="animate-pulse">
+            <SockLogo size={44} />
           </div>
           <p className="text-text-muted text-sm">Loading…</p>
         </div>

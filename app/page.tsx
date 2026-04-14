@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { ReactNode } from "react";
+import SockLogo from "@/components/ui/SockLogo";
 
 // ─── Status colour helpers ────────────────────────────────────────────────────
 
@@ -25,34 +27,93 @@ const STATUS = {
   },
 } as const;
 
-const FEATURES = [
+// ─── Feature icons (Material Icons SVG paths) ─────────────────────────────────
+
+// Three status dots stacked — mirrors the app's green/yellow/red system
+function IconStatus() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-6 h-6" aria-hidden="true">
+      <circle cx="12" cy="5" r="3" fill="#4caf50" />
+      <circle cx="12" cy="12" r="3" fill="#fbc02d" />
+      <circle cx="12" cy="19" r="3" fill="#d32f2f" />
+    </svg>
+  );
+}
+
+// Icons.chat_bubble_outline
+function IconChat() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-6 h-6 fill-text-secondary" aria-hidden="true">
+      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" />
+    </svg>
+  );
+}
+
+// Icons.notifications_outlined
+function IconNotifications() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-6 h-6 fill-text-secondary" aria-hidden="true">
+      <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+    </svg>
+  );
+}
+
+// Icons.meeting_room
+function IconRoom() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-6 h-6 fill-text-secondary" aria-hidden="true">
+      <path d="M17 11h-1V7c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1zm-3 8H4V8h10v11zm2-4h-1v-3h1v3z" />
+      <circle cx="9" cy="13" r="1" />
+    </svg>
+  );
+}
+
+// Icons.people_outline
+function IconPeople() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-6 h-6 fill-text-secondary" aria-hidden="true">
+      <path d="M16.5 13c-1.2 0-3.07.34-4.5 1-1.43-.67-3.3-1-4.5-1C5.33 13 1 14.08 1 16.25V18h22v-1.75c0-2.17-4.33-3.25-6.5-3.25zm-4 3.25H3v-.75c0-.29.98-.75 2.5-1s2.36.29 3 .5c.64-.21 1.5-.5 3-.5H14v1.75zm4 0h-2.5v-1.75h2.5c1.52.25 2.5.71 2.5 1v.75zM7.5 12c1.93 0 3.5-1.57 3.5-3.5S9.43 5 7.5 5 4 6.57 4 8.5 5.57 12 7.5 12zm0-5c.83 0 1.5.67 1.5 1.5S8.33 10 7.5 10 6 9.33 6 8.5 6.67 7 7.5 7zm9 5c1.93 0 3.5-1.57 3.5-3.5S18.43 5 16.5 5 13 6.57 13 8.5s1.57 3.5 3.5 3.5zm0-5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z" />
+    </svg>
+  );
+}
+
+// Icons.bolt
+function IconBolt() {
+  return (
+    <svg viewBox="0 0 24 24" className="w-6 h-6 fill-text-secondary" aria-hidden="true">
+      <path d="M11 21h-1l1-7H7.5c-.88 0-.33-.75-.31-.78C8.48 10.94 10.42 7.54 13.01 3h1l-1 7h3.51c.4 0 .62.19.19.7C14.34 14.24 12.23 17.59 11 21z" />
+    </svg>
+  );
+}
+
+const FEATURES: { icon: ReactNode; title: string; body: string }[] = [
   {
-    icon: "🚦",
+    icon: <IconStatus />,
     title: "Three-state status",
     body: "Green, yellow, red — a traffic light on every door. Set it in one tap; everyone sees it live.",
   },
   {
-    icon: "💬",
+    icon: <IconChat />,
     title: "Household chat",
     body: "One shared chat for your house. Status changes show up inline so nothing gets lost.",
   },
   {
-    icon: "🔔",
+    icon: <IconNotifications />,
     title: "Push notifications",
     body: "Get notified the moment a housemate's status changes, even when the app is closed.",
   },
   {
-    icon: "🏠",
+    icon: <IconRoom />,
     title: "Multiple rooms",
     body: "Bedroom, studio, office — each room has its own status. Join only the rooms that matter to you.",
   },
   {
-    icon: "👥",
+    icon: <IconPeople />,
     title: "Roles & permissions",
     body: "Admins manage the household. Members update their own rooms. Simple.",
   },
   {
-    icon: "⚡",
+    icon: <IconBolt />,
     title: "Real-time, always",
     body: "Built on WebSockets. Status updates reach everyone in your house within milliseconds.",
   },
@@ -83,10 +144,8 @@ export default function LandingPage() {
     <div className="flex flex-col min-h-screen bg-bg-primary text-text-primary">
       {/* Nav */}
       <nav className="sticky top-0 z-50 flex items-center justify-between px-6 py-4 border-b border-border-default bg-bg-primary/90 backdrop-blur-md">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-brand-purple flex items-center justify-center text-white font-bold text-sm">
-            S
-          </div>
+        <div className="flex items-center gap-2.5">
+          <SockLogo size={30} />
           <span className="font-semibold text-lg tracking-tight">Sock</span>
         </div>
         <div className="flex items-center gap-3">
@@ -221,8 +280,7 @@ export default function LandingPage() {
           Three states. One glance.
         </h2>
         <p className="text-center text-text-secondary mb-12">
-          No ambiguity. Everyone in the house knows exactly what each status
-          means.
+          No ambiguity. Everyone in the house knows exactly what each status means.
         </p>
         <div className="grid sm:grid-cols-3 gap-4">
           {(["green", "yellow", "red"] as const).map((s) => (
@@ -253,7 +311,7 @@ export default function LandingPage() {
               key={f.title}
               className="p-5 rounded-2xl border border-border-default bg-bg-card hover:border-brand-purple/40 transition-colors"
             >
-              <div className="text-2xl mb-3">{f.icon}</div>
+              <div className="mb-3">{f.icon}</div>
               <h3 className="font-semibold mb-2">{f.title}</h3>
               <p className="text-sm text-text-secondary leading-relaxed">
                 {f.body}
@@ -322,10 +380,8 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="border-t border-border-default mt-auto">
         <div className="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded bg-brand-purple flex items-center justify-center text-white font-bold text-xs">
-              S
-            </div>
+          <div className="flex items-center gap-2.5">
+            <SockLogo size={22} />
             <span className="text-sm text-text-muted">
               © {new Date().getFullYear()} Sock
             </span>

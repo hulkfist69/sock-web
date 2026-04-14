@@ -183,7 +183,10 @@ export default function ChatPage() {
   if (!activeHousehold) {
     return (
       <div className="flex flex-col items-center justify-center h-full px-8 py-16 text-center">
-        <div className="text-4xl mb-4">💬</div>
+        {/* Icons.chat_bubble_outline */}
+        <svg viewBox="0 0 24 24" className="w-12 h-12 fill-text-muted mb-4" aria-hidden="true">
+          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" />
+        </svg>
         <p className="text-text-muted text-sm">Join a household to start chatting.</p>
       </div>
     );

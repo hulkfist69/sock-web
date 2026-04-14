@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { register } from "@/lib/api";
 import { setToken } from "@/lib/auth";
+import SockLogo from "@/components/ui/SockLogo";
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -41,8 +42,8 @@ export default function SignUpPage() {
     <div className="w-full max-w-sm">
       {/* Logo */}
       <div className="flex flex-col items-center mb-8">
-        <div className="w-12 h-12 rounded-2xl bg-brand-purple flex items-center justify-center mb-4">
-          <span className="text-white font-bold text-xl">S</span>
+        <div className="mb-4">
+          <SockLogo size={52} />
         </div>
         <h1 className="text-2xl font-bold">Create your account</h1>
         <p className="text-text-muted text-sm mt-1">
