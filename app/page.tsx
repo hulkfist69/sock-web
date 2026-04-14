@@ -321,6 +321,88 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Coming soon */}
+      <section className="px-6 pb-24 max-w-4xl mx-auto w-full">
+        <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="h-px flex-1 bg-border-default" />
+          <span className="text-xs font-semibold text-brand-purple-light uppercase tracking-widest px-2">
+            Coming soon
+          </span>
+          <div className="h-px flex-1 bg-border-default" />
+        </div>
+        <h2 className="text-3xl font-bold text-center mb-3">More on the way</h2>
+        <p className="text-center text-text-secondary mb-10">
+          Sock is growing. Here&apos;s what&apos;s coming next for your household.
+        </p>
+        <div className="grid sm:grid-cols-2 gap-5">
+
+          {/* Shared lists */}
+          <div className="relative p-6 rounded-2xl border border-brand-purple/30 bg-brand-purple/5 overflow-hidden">
+            <div className="absolute top-4 right-4 text-xs font-semibold text-brand-purple-light bg-brand-purple/15 px-2.5 py-1 rounded-full">
+              In development
+            </div>
+            <div className="mb-4">
+              {/* Icons.list_alt_outlined */}
+              <svg viewBox="0 0 24 24" className="w-6 h-6 fill-brand-purple-light" aria-hidden="true">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7zm4-8h6v2h-6zm0 4h6v2h-6zm0 4h6v2h-6z" />
+              </svg>
+            </div>
+            <h3 className="font-semibold text-lg mb-2">Shared lists</h3>
+            <p className="text-sm text-text-secondary leading-relaxed mb-4">
+              Collaborate on lists with your whole household — grocery runs, chores, errands, whatever you need. Everyone can add items, check things off, and see what&apos;s still outstanding in real time.
+            </p>
+            <ul className="flex flex-col gap-1.5">
+              {[
+                "Grocery lists, chore rotas, to-dos",
+                "Real-time updates for all members",
+                "Multiple lists per household",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-xs text-text-muted">
+                  {/* Icons.check */}
+                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-brand-purple flex-shrink-0" aria-hidden="true">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Expense tracking */}
+          <div className="relative p-6 rounded-2xl border border-brand-purple/30 bg-brand-purple/5 overflow-hidden">
+            <div className="absolute top-4 right-4 text-xs font-semibold text-brand-purple-light bg-brand-purple/15 px-2.5 py-1 rounded-full">
+              In development
+            </div>
+            <div className="mb-4">
+              {/* Icons.receipt_long_outlined */}
+              <svg viewBox="0 0 24 24" className="w-6 h-6 fill-brand-purple-light" aria-hidden="true">
+                <path d="M19.5 3.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2v14H3v3c0 1.66 1.34 3 3 3h12c1.66 0 3-1.34 3-3V2l-1.5 1.5zM19 19c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1v-1h14v1zM17 16H8v-2h9v2zm0-4H8v-2h9v2zm0-4H8V6h9v2z" />
+              </svg>
+            </div>
+            <h3 className="font-semibold text-lg mb-2">Expense tracking</h3>
+            <p className="text-sm text-text-secondary leading-relaxed mb-4">
+              Keep shared costs transparent. Admins set up recurring expenses — rent, utilities, subscriptions — assign each member their share, and set a due date. Members log payments directly in Sock, so the whole household can see progress in real time.
+            </p>
+            <ul className="flex flex-col gap-1.5">
+              {[
+                "Weekly, monthly, or yearly billing cycles",
+                "Per-member payment portions",
+                "Live progress toward the total",
+                "See who has and hasn\u2019t paid",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-xs text-text-muted">
+                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-brand-purple flex-shrink-0" aria-hidden="true">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
       {/* How it works */}
       <section className="px-6 pb-24 max-w-3xl mx-auto w-full">
         <h2 className="text-3xl font-bold text-center mb-12">How it works</h2>
